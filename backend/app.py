@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+import model_loader
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
@@ -9,6 +10,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 library = []
+encoder = model_loader.load_encoder()
+model = model_loader.load_model()
 
 
 @app.route('/')
@@ -73,6 +76,25 @@ def add_to_library(name):
 @app.route('/get_library')
 def get_library():
     return {'data': library}
+
+
+@app.route('/recommend')
+def recommend():
+    if len(library) == 0:
+        return {'data': []}
+    recommendations = get_recommendations(
+        encoder.transform([library[0]])[0], 10)
+    rec = [{'name': get_name_from_appid(
+        id), 'header_image': get_header_image(id)} for id in recommendations]
+    return {'data': rec}
+
+
+def get_recommendations(item_id, top_n=5):
+    sim_scores = model[item_id]
+    top_similar_items = sim_scores.argsort()[::-1][1:top_n+1]
+    top_similar_items = [encoder.inverse_transform(
+        [i])[0] for i in top_similar_items]
+    return top_similar_items
 
 
 def get_appid_from_name(name):
