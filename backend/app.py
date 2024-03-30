@@ -1,9 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from flask_cors import CORS
 import model_loader
 
+
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -122,3 +125,7 @@ def get_header_image(appid):
     results = cursor.fetchall()
     header_image = results[0].header_image
     return header_image
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
