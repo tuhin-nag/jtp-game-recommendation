@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from '../components/Carousel';
 import GameCard from '../components/GameCard';
-import './Home.css';
+import './home.css';
 
 const Home = () => {
   const [recommendedGames, setRecommendedGames] = useState([]);
   const [topGames, setTopGames] = useState([]);
+  const [genreGames, setGenreGames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [renderContent, setRenderContent] = useState(false);
 
@@ -16,11 +17,13 @@ const Home = () => {
         const [recommendedResponse, topResponse, genreResponse] = await Promise.all([
           axios.get('http://localhost:5000/recommend'),
           axios.get('http://localhost:5000/top_10'),
+          axios.get('http://localhost:5000/top_in_genre/action'),
         ]);
 
         setRecommendedGames(recommendedResponse.data.data);
         // console.log(recommendedResponse.data.data)
         setTopGames(topResponse.data.data);
+        setGenreGames(genreResponse.data.data);
         setIsLoading(false);
         setRenderContent(true);
       } catch (error) {
@@ -37,6 +40,14 @@ const Home = () => {
     <div className='outer'>
       <div className="carousel-container">
         <Carousel games={recommendedGames.length > 0 ? recommendedGames : topGames} />
+      </div>
+      <div>
+        <h2>Action Games</h2>
+        <div className="game-row">
+          {genreGames.map((game) => (
+            <GameCard key={game.name} game={game} />
+          ))}
+        </div>
       </div>
     </div>
   ) : null;

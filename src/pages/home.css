@@ -1,0 +1,10 @@
+.game-row {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+}
