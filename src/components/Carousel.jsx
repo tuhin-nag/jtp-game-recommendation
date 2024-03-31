@@ -41,49 +41,6 @@ const Carousel = ({ games }) => {
     }
   }
   return (
-    // <div className="carousel">
-    //   <div className="carousel-item">
-    //     <button className="prev-btn" onClick={handlePrev}>
-    //       &lt;
-    //     </button>
-    //     <div className="image-container"
-    //       onMouseEnter={handleMouseEnter}
-    //       onMouseLeave={handleMouseLeave}>
-    //       <img src={games[currentIndex].header_image} alt={games[currentIndex].name} />
-    //       {isHovered && (
-    //         <div
-    //           style={{
-    //             position: 'absolute',
-    //             top: 10,
-    //             right: 10,
-    //             backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    //             padding: '15px 20px',
-    //             borderRadius: '5px',
-    //             display: 'flex',
-    //             alignItems: 'center',
-    //             cursor: 'pointer',
-    //             transition: 'opacity 0.3s ease, transform 0.3s ease',
-    //           }}
-    //           onClick={handleClickAddToLibrary}
-    //         >
-    //           {isAdded ? (
-    //             <FontAwesomeIcon icon={faCheck} />
-    //           ) : (
-    //             <span style={{ fontSize: '18px', color: 'white' }}>
-    //               Add to Library
-    //             </span>
-    //           )}
-    //         </div>
-    //       )}
-    //       <div className="carousel-item-details">
-    //         <h3>{games[currentIndex].name}</h3>
-    //       </div>
-    //     </div>
-    //     <button className="next-btn" onClick={handleNext}>
-    //       &gt;
-    //     </button>
-    //   </div>
-    // </div>
     <div>
       <div className="button-container">
         <div className="arrow hero-options" id="left" onClick={handlePrev}></div>
@@ -99,11 +56,6 @@ const Carousel = ({ games }) => {
         <div className="arrow hero-options" id="right" onClick={handleNext}></div>
       </div>
       <img className="main-content-carousel" src={games[currentIndex].header_image} alt={games[currentIndex].name} />
-      {/* <div
-        className="main-content-carousel"
-        id="image"
-      >
-      </div> */}
     </div>
   );
 };

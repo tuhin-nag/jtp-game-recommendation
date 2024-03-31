@@ -33,54 +33,6 @@ const GameCard = ({ game }) => {
     }
   };
   return (
-    // <div
-    //   className='game-card'
-    //   onMouseEnter={handleMouseEnter}
-    //   onMouseLeave={handleMouseLeave}
-    // >
-    //   <div className='image-container'>
-    //     <div
-    //       style={{
-    //         backgroundImage: `url(${header_image})`,
-    //         backgroundSize: 'cover',
-    //         backgroundPosition: 'center',
-    //         width: '100%',
-    //         height: '100%',
-    //         borderRadius: '10px'
-    //       }}
-    //     ></div>
-    //     {isHovered && (
-    //       <div
-    //         style={{
-    //           position: 'absolute',
-    //           top: 10,
-    //           right: 10,
-    //           backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    //           padding: '15px 20px',
-    //           borderRadius: '5px',
-    //           display: 'flex',
-    //           alignItems: 'center',
-    //           cursor: 'pointer',
-    //           transition: 'opacity 0.3s ease, transform 0.3s ease',
-    //         }}
-    //         onClick={handleClickAddToLibrary}
-    //       >
-    //         {isAdded ? (
-    //           <FontAwesomeIcon icon={faCheck} />
-    //         ) : (
-    //           <span style={{ fontSize: '18px', color: 'white' }}>
-    //             Add to Library
-    //           </span>
-    //         )}
-    //       </div>
-    //     )}
-    //   </div>
-    //   <div className='text-container'>
-    //     <h3 className='header-text'>
-    //       {name}
-    //     </h3>
-    //   </div>
-    // </div>
     <div className="game-card-container">
       <div
         className='game-card'
