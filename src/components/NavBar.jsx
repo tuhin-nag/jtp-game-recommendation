@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div>
       <div className="navbar-container">
-        <div className="logo-container">Baldur's Gate Sweep</div>
+        <div className="logo-container">Video Game Recommender</div>
         <div className="site-control-options">
           <a href="">Home</a>
           <a href="">Library</a>

@@ -53,6 +53,7 @@ const Carousel = ({ games }) => {
         <div className="arrow hero-options" id="right" onClick={handleNext}></div>
       </div>
       <img className="main-content-carousel" src={games[currentIndex].header_image} alt={games[currentIndex].name} />
+      <div className="recommended-text">RECOMMENDED FOR YOU</div>
     </div>
   );
 };

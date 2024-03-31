@@ -10,7 +10,7 @@
 }
 
 .carousel-container {
-  margin-top: 70px;
+  margin-top: 150px;
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -21,17 +21,19 @@
 {
     width: 100%;
     display: grid;
+    padding-top: 150px;
 }
 .section-1 > * 
 {
     width: 100vw;
     place-self: center;
+    
 }
 .section-1 > h1 
 {
     text-transform: uppercase;
     font-size: 1.25rem;
-    background: var(--primary-gradient);
+    background: var(--text-color);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -42,6 +44,7 @@
     align-items: center;
     margin-block: 0rem 2.441rem;
     height: 25vh;
+    
 }
 .primary-carousel
 {
@@ -49,8 +52,13 @@
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 30px;
     /* overflow-x: auto; */
+    background: var(--accent-color);
+    padding-top: 20px;
+    padding: 30px;
+    
+
+    
 }
 .primary-carousel::-webkit-scrollbar
 {
