@@ -38,7 +38,7 @@ const GameCard = ({ game }) => {
         className='game-card'
         style={{
           width: '90%',
-          aspectRatio: '16/9',
+          aspectRatio: '460/215',
           borderRadius: '0.32rem',
           backgroundImage: `url(${header_image})`,
           backgroundSize: 'cover',

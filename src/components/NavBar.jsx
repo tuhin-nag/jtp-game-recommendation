@@ -9,19 +9,21 @@ function NavBar() {
         <div className="site-control-options">
           <a href="">Home</a>
           <a href="">Library</a>
-          <a href="">Library</a>
+          {/* <a href="">Library</a> */}
         </div>
         <div className="user-control-options">
-          <div className="search-button"><img
-            src="/magnifying-glass-solid.svg"
-            alt=""
-            data-active="false"
-            id="search-icon"
-          // onClick={revealMoreOptions()}
-          /><textarea
-            id="search-text"
-            rows="1"
-          ></textarea><img
+          <div className="search-button">
+            <img
+              src="/magnifying-glass-solid.svg"
+              alt=""
+              data-active="false"
+              id="search-icon"
+            // onClick={revealMoreOptions()}
+            /><textarea
+              id="search-text"
+              rows="1"
+            ></textarea>
+            <img
               src="../assets/filter-solid.svg"
               alt=""
               id="filter"

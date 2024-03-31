@@ -32,7 +32,7 @@
 }
 .user-control-options
 {
-    background-color: var(--text-color);
+    background-color: white;
     padding: 0rem 0.2441rem;
 }
 .search-button
@@ -60,7 +60,7 @@
     overflow: auto;
     outline: none;
     background-color: white;
-    color: white;
+    color: black;
 
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
