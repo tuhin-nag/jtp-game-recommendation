@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './carousel.css';
 
@@ -11,7 +9,6 @@ const Carousel = ({ games }) => {
 
   const handlePrev = () => {
     setCurrentIndex((currentIndex - 1 + games.length) % games.length);
-    console.log(games[currentIndex].header_image)
   };
 
   const handleNext = () => {

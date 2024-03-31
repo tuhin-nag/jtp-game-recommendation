@@ -38,7 +38,7 @@
     cursor: pointer;
     visibility: hidden;
 }
-.game-card-container:hover .save-game
+.game-card-container:hover .save-game 
 {
     visibility: visible;
 }

@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './gamecard.css';
 
 const GameCard = ({ game }) => {
   const { header_image, name } = game
-  console.log(header_image)
-  const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-  const handleMouseEnter = (e) => {
-    setIsHovered(true);
-    e.currentTarget.style.transform = 'scale(0.7)';
-  }
-  const handleMouseLeave = (e) => {
-    setIsHovered(false);
-    e.currentTarget.style.transform = 'scale(0.6)';
-  }
 
   const handleClickAddToLibrary = async () => {
     setIsAdded(!isAdded);
@@ -48,7 +36,7 @@ const GameCard = ({ game }) => {
         }}></div>
       <div className="game-title">
         <span>{game.name}</span>
-        <button className="save-game"></button>
+        <button className="save-game" onClick={handleClickAddToLibrary}></button>
       </div>
     </div>
   );
