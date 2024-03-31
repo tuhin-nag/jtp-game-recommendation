@@ -17,22 +17,6 @@ encoder = model_loader.load_encoder()
 model = model_loader.load_model()
 
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
-
-
-@app.route('/get_data')
-def get_data():
-    print('get_data')
-    sql_query = text('SELECT name FROM games LIMIT 5')
-    cursor = db.session.execute(sql_query)
-    results = cursor.fetchall()
-    data = [{'name': row.name} for row in results]
-    cursor.close()
-    return {'data': data}
-
-
 @app.route('/top_in_genre/<genre>')
 def top_in_genre(genre):
     sql_query = text(
@@ -78,6 +62,12 @@ def add_to_library(name):
 
 @app.route('/get_library')
 def get_library():
+    return {'data': library}
+
+
+@app.route('/remove_from_library/<name>')
+def remove_from_library(name):
+    library.remove(get_appid_from_name(name))
     return {'data': library}
 
 
