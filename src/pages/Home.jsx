@@ -41,12 +41,14 @@ const Home = () => {
       <div className="carousel-container">
         <Carousel games={recommendedGames.length > 0 ? recommendedGames : topGames} />
       </div>
-      <div>
-        <h2>Action Games</h2>
-        <div className="game-row">
-          {genreGames.map((game) => (
-            <GameCard key={game.name} game={game} />
-          ))}
+      <div className="section-1">
+        <h1>Action Games</h1>
+        <div className="section-1-content-container">
+          <div className="primary-carousel">
+            {genreGames.map((game) => (
+              <GameCard key={game.name} game={game} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
