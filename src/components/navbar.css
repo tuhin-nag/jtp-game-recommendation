@@ -1,11 +1,11 @@
 .navbar-container
 {
-    display: grid;
-    grid-template-columns: 3fr 8fr 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
     width: 100%;
-    padding: 2rem 0.64rem;
-    background-color: black;
+    padding: 15px 7%;
+    background-color: #393939;
     position: fixed;
     z-index: 100;
 }
@@ -30,10 +30,21 @@
     font-weight: 800;
     color: var(--text-color);
 }
-.user-control-options
+.search-box {
+    display:flex;
+    padding: 0.32rem 0.64rem;
+    align-items: center;
+    background: #242424;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.search-box > input
 {
-    background-color: white;
-    padding: 0rem 0.2441rem;
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
 }
 .search-button
 {
