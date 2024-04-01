@@ -67,8 +67,10 @@ def get_library():
 
 @app.route('/remove_from_library/<name>')
 def remove_from_library(name):
-    library.remove(get_appid_from_name(name))
-    return {'data': library}
+    appid = get_appid_from_name(name)
+    if appid in library:
+        library.remove(appid)
+        return {'data': library}
 
 
 @app.route('/recommend')
