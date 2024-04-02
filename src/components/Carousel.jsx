@@ -4,7 +4,6 @@ import './carousel.css';
 
 const Carousel = ({ games }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
   const handlePrev = () => {
@@ -14,13 +13,6 @@ const Carousel = ({ games }) => {
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % games.length);
   };
-
-  const handleMouseEnter = (e) => {
-    setIsHovered(true);
-  }
-  const handleMouseLeave = (e) => {
-    setIsHovered(false);
-  }
 
   const handleClickAddToLibrary = async () => {
     setIsAdded(!isAdded);
