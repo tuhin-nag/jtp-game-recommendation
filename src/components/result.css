@@ -40,7 +40,7 @@
   border: 2px solid black;
   display: inline-block;
   padding: 5px;
-  visibility: visible; 
+  visibility: hidden; 
   background-color: black;
   border-radius: 10px;
 }

@@ -17,7 +17,7 @@ function NavBar() {
       <div className="navbar-container">
         <div className="logo-container">Video Game Recommender</div>
         <div className="site-control-options">
-          <a href="">Home</a>
+          <a href="/">Home</a>
           <a href="">Library</a>
         </div>
         <div className="search-box">

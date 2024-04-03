@@ -14,5 +14,45 @@
   color: white;
 }
 
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-content {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.right-content {
+  font-size: 1rem;
+  color: white;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.pagination button {
+  /* background-color: #f8f9fa; */
+  /* border: 1px solid #ced4da; */
+  color: var(--text-color);
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
+}
+
+.pagination button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 
 
