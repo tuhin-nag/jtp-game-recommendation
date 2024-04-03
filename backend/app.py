@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from flask_cors import CORS
@@ -71,6 +71,46 @@ def remove_from_library(name):
     if appid in library:
         library.remove(appid)
         return {'data': library}
+
+
+@app.route('/get_genres')
+def get_genres():
+    sql_query = text(
+        'SELECT distinct genres FROM games WHERE genres NOT LIKE "%;%" LIMIT 8')
+    cursor = db.session.execute(sql_query)
+    results = cursor.fetchall()
+    genres = [row.genres for row in results]
+    cursor.close()
+    return {'data': genres}
+
+
+@app.route('/get_platforms')
+def get_platforms():
+    sql_query = text(
+        'SELECT distinct platforms FROM games WHERE platforms NOT LIKE "%;%" LIMIT 8')
+    cursor = db.session.execute(sql_query)
+    results = cursor.fetchall()
+    platforms = [row.platforms for row in results]
+    cursor.close()
+    return {'data': platforms}
+
+
+@app.route('/get_search_results', methods=['POST'])
+def get_search_results():
+    data = request.json
+
+    genre = data.get('genre')
+    category = data.get('category')
+    platform = data.get('platform')
+    sql_query = text(
+        'SELECT name, appid FROM games where genres like :genre and categories like :category and platforms like :platform order by positive_ratings desc LIMIT 10')
+    cursor = db.session.execute(sql_query, {
+                                'genre': '%'+genre+'%', 'category': '%'+category+'%', 'platform': '%'+platform+'%'})
+    results = cursor.fetchall()
+    data = [{'appid': row.appid, 'name': row.name, 'header_image': get_header_image(
+        row.appid)} for row in results]
+    cursor.close()
+    return {'data': data}
 
 
 @app.route('/recommend')

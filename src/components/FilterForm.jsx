@@ -1,18 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './filterform.css';
+import { useNavigate } from 'react-router-dom';
 
 const FilterForm = () => {
   const [genre, setGenre] = useState('');
   const [category, setCategory] = useState('');
   const [platform, setPlatform] = useState('');
+  const navigateTo = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [platforms, setPlatforms] = useState([]);
+  const [genres, setGenres] = useState([]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to an API or update state
-    console.log('Genre:', genre);
-    console.log('Category:', category);
-    console.log('Platform:', platform);
+    try {
+      const response = await axios.post('http://localhost:5000/get_search_results', {
+        genre: genre,
+        category: category,
+        platform: platform
+      });
+      console.log(response.data.data)
+      navigateTo('/search_results', { state: response.data.data });
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [genresResponse, platformsResponse] = await Promise.all([
+          axios.get('http://localhost:5000/get_genres'),
+          axios.get('http://localhost:5000/get_platforms')
+        ]);
+        setGenres(genresResponse.data.data);
+        setPlatforms(platformsResponse.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="filter-form">
@@ -26,10 +56,11 @@ const FilterForm = () => {
             onChange={(e) => setGenre(e.target.value)}
           >
             <option value="">Select genre</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="RPG">RPG</option>
-            {/* Add more options as needed */}
+            {genres.map((genre, index) => (
+              <option key={index} value={genre}>
+                {genre}
+              </option>
+            ))}
           </select>
         </div>
         <div className="mb-4">
@@ -40,8 +71,8 @@ const FilterForm = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select category</option>
-            <option value="Singleplayer">Singleplayer</option>
-            <option value="Multiplayer">Multiplayer</option>
+            <option value="Single-player">Single-player</option>
+            <option value="Multi-player">Multi-player</option>
             <option value="Co-op">Co-op</option>
           </select>
         </div>
@@ -53,10 +84,11 @@ const FilterForm = () => {
             onChange={(e) => setPlatform(e.target.value)}
           >
             <option value="">Select platform</option>
-            <option value="PC">PC</option>
-            <option value="PlayStation">PlayStation</option>
-            <option value="Xbox">Xbox</option>
-            <option value="Nintendo Switch">Nintendo Switch</option>
+            {platforms.map((platform, index) => (
+              <option key={index} value={platform}>
+                {platform.charAt(0).toUpperCase() + platform.slice(1)}
+              </option>
+            ))}
           </select>
         </div>
         <button type="submit">Filter Games</button>
