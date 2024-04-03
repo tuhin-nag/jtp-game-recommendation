@@ -15,7 +15,7 @@ const FilterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/get_search_results', {
+      const response = await axios.post('http://localhost:5000/get_filter_results', {
         genre: genre,
         category: category,
         platform: platform

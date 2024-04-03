@@ -65,6 +65,12 @@ def get_library():
     return {'data': library}
 
 
+@app.route('/is_in_library/<name>')
+def is_in_library(name):
+    appid = get_appid_from_name(name)
+    return {'data': appid in library}
+
+
 @app.route('/remove_from_library/<name>')
 def remove_from_library(name):
     appid = get_appid_from_name(name)
@@ -95,8 +101,8 @@ def get_platforms():
     return {'data': platforms}
 
 
-@app.route('/get_search_results', methods=['POST'])
-def get_search_results():
+@app.route('/get_filter_results', methods=['POST'])
+def get_filter_results():
     data = request.json
 
     genre = data.get('genre')

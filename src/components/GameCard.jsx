@@ -6,6 +6,16 @@ const GameCard = ({ game }) => {
   const { header_image, name } = game
   const [isAdded, setIsAdded] = useState(false);
 
+  useEffect(() => {
+    axios.get(`http://localhost:5000/is_in_library/${game.name}`)
+      .then(response => {
+        setIsAdded(response.data.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
 
   const handleClickAddToLibrary = async () => {
     setIsAdded(!isAdded);
