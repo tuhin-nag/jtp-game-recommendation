@@ -104,4 +104,46 @@ body
     color: white;
     margin-top: 1rem;
     justify-content: center;
-  }
+}
+
+.carousel-container:hover .library-container {
+  visibility: visible;
+}
+
+.carousel-container:hover .bookmark {
+  visibility: visible;
+}
+.library-container {
+  display: inline-block;
+  padding: 5px;
+  visibility: hidden; 
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.button-text {
+  margin-right: 10px;
+}
+
+.bookmark
+{
+    width: 50px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+
+}
