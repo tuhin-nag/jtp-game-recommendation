@@ -47,18 +47,13 @@
     outline: 0;
     color: white;
 }
-.search-button
+.filter-button
 {
     gap: 0.3813rem;
     display: flex;
     align-items: center;
     cursor: pointer;
-}
-.search-button > img 
-{
-    filter: invert();
-    width: 8%;
-    aspect-ratio: 1/1;
+    margin-right: 0.5rem;
 }
 #search-text
 {

@@ -119,6 +119,21 @@ def get_filter_results():
     return {'data': data}
 
 
+@app.route('/get_search_results', methods=['POST'])
+def get_search_results():
+    data = request.json
+    search_query = data.get('search_query')
+    sql_query = text(
+        'SELECT name, appid FROM games where name like :search_query order by positive_ratings desc LIMIT 10')
+    cursor = db.session.execute(sql_query, {
+                                'search_query': '%'+search_query+'%'})
+    results = cursor.fetchall()
+    data = [{'appid': row.appid, 'name': row.name, 'header_image': get_header_image(
+        row.appid)} for row in results]
+    cursor.close()
+    return {'data': data}
+
+
 @app.route('/recommend')
 def recommend():
     if len(library) == 0:
