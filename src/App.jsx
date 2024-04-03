@@ -4,8 +4,8 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './pages/Home';
-import NavBar from "./components/NavBar";
 import SearchResults from "./pages/SearchResults";
+import './App.css';
 
 function App() {
   return (
