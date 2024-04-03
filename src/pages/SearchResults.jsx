@@ -1,5 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import './searchresults.css';
+import NavBar from '../components/NavBar';
+import Result from '../components/Result';
 
 function SearchResults() {
   const location = useLocation();
@@ -8,14 +11,15 @@ function SearchResults() {
 
   return (
     <div>
-      <h2>Results:</h2>
-      <ul>
-        {searchResults.data.map((item, index) => (
-          <li key={index}>
-            appid: {item.appid}, name: {item.name}, header: {item.header_image}
-          </li>
-        ))}
-      </ul>
+      <NavBar />
+      <div className='results-container-container'>
+        <div className='results-container'>
+          {searchResults.data.map((game, index) => (
+            <Result key={index} game={game} />
+          ))
+          }
+        </div>
+      </div>
     </div>
   );
 }

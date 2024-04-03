@@ -9,6 +9,7 @@
     position: fixed;
     z-index: 100;
 }
+
 .site-control-options
 {
     display: flex;
@@ -86,12 +87,13 @@
 
 .filter-container
 {
+    width: 100%;
+    z-index: 1;
     padding-top: 77px;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: translateY(0);
 }
 
-/* Styles when the component should be hidden */
 .filter-container.hidden {
     transform: translateY(-200px);
   }

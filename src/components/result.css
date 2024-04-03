@@ -1,0 +1,15 @@
+.image-with-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  flex: 1;
+  font-size: 20px;
+}
+
+.divider {
+  border-top: 1px solid white;
+  width: 100%;
+}

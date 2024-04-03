@@ -10,11 +10,9 @@ import SearchResults from "./pages/SearchResults";
 function App() {
   return (
     <Router>
-      <NavBar />
       <Routes>
+        <Route path="/search_results" element={<SearchResults />} />
         <Route path="/" element={<Home />} />
-        <Route path="/search_results" element={<SearchResults />}>
-        </Route>
       </Routes>
     </Router>
   );

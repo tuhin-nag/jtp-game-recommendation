@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from '../components/Carousel';
 import GameCard from '../components/GameCard';
+import NavBar from '../components/NavBar';
 import './home.css';
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
     <div>Loading...</div>
   ) : renderContent ? (
     <div className='outer'>
+      <NavBar />
       <div className="carousel-container">
         <Carousel games={recommendedGames.length > 0 ? recommendedGames : topGames} />
       </div>
