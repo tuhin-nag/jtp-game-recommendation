@@ -74,7 +74,7 @@ const Carousel = ({ games }) => {
       <div className='footer'>
         <div className="recommended-text">RECOMMENDED FOR YOU</div>
         {!isAdded[currentIndex] ? (
-          <div className="library-container">
+          <div className="add-library-container">
             <div className="button-content" onClick={handleClickAddToLibrary}>
               <span className="button-text">Add To Library</span>
               <svg xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const Carousel = ({ games }) => {
             </div>
           </div>
         ) : (
-          <div className="library-container">
+          <div className="add-library-container">
             <div className="button-content" onClick={handleClickAddToLibrary}>
               <span className="button-text">Remove From Library</span>
               <svg
