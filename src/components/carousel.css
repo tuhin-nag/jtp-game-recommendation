@@ -11,11 +11,12 @@
     --accent-color: #1b2838;
     --primary-gradient: linear-gradient(to right, #502371, #b76fe7); */
     
+    --navbar-color:#131313;
     --text-color: #eeeff5;
-    --background-color: #27072f;
+    --background-color: #282828;
     --primary-color: #502371;
-    --secondary-color:#1c0421;
-    --accent-color: #27072f;
+    --secondary-color:#171717;
+    --accent-color: #282828;
     --primary-gradient: linear-gradient(to right, #502371, #b76fe7);
 }
 body

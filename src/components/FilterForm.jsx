@@ -46,8 +46,8 @@ const FilterForm = () => {
 
   return (
     <div className="filter-form">
-      <h2>Filter Games</h2>
       <form onSubmit={handleSubmit}>
+        <h2>Filter Games</h2>
         <div className="mb-4">
           <label htmlFor="genre">Genre</label>
           <select

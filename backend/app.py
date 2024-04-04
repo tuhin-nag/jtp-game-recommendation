@@ -62,7 +62,10 @@ def add_to_library(name):
 
 @app.route('/get_library')
 def get_library():
-    return {'data': library}
+    data = [{'name': get_name_from_appid(id),
+             'header_image': get_header_image(id),
+             'appid': id} for id in library]
+    return {'data': data}
 
 
 @app.route('/is_in_library/<name>')
