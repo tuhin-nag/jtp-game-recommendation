@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import SearchResults from "./pages/SearchResults";
-import './App.css';
 
 function App() {
   return (
