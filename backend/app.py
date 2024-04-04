@@ -158,24 +158,13 @@ def recommend():
                 'appid': app['appid'], 'name': name, 'rating': rating}
 
     recs = []
-    num_recs_per_genre = 10 // len(highest_rated_apps)
-    remaining_recs = 10 % len(highest_rated_apps)
+    num_recs_per_genre = 12 // len(highest_rated_apps)
     for genre in highest_rated_apps:
         if highest_rated_apps[genre]['appid'] is not None:
             recommendations = get_recommendations(encoder.transform(
                 [highest_rated_apps[genre]['appid']])[0], num_recs_per_genre)
             recs.extend(recommendations)
 
-    for genre, app_info in highest_rated_apps.items():
-        if remaining_recs == 0:
-            break
-        if app_info['appid'] is not None:
-            recommendations = get_recommendations(
-                encoder.transform([app_info['appid']])[0], 1)
-            recs.extend(recommendations)
-            remaining_recs -= 1
-
-    recs = recs[:10]
     rec = [{'name': get_name_from_appid(
         id), 'header_image': get_header_image(id)} for id in recs]
     return {'data': rec}
