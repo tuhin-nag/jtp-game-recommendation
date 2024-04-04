@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from flask_cors import CORS
 import model_loader
+from collections import defaultdict
 
 
 app = Flask(__name__)
@@ -141,10 +142,42 @@ def get_search_results():
 def recommend():
     if len(library) == 0:
         return {'data': []}
-    recommendations = get_recommendations(
-        encoder.transform([library[0]])[0], 10)
+
+    detailed_library = [{'appid': id, 'name': get_name_from_appid(
+        id), 'genre': get_genre(id), 'rating': get_rating(id)} for id in library]
+
+    highest_rated_apps = defaultdict(
+        lambda: {'appid': None, 'rating': float('-inf')})
+
+    for app in detailed_library:
+        name = app['name']
+        genre = app['genre']
+        rating = app['rating']
+        if rating > highest_rated_apps[genre]['rating']:
+            highest_rated_apps[genre] = {
+                'appid': app['appid'], 'name': name, 'rating': rating}
+
+    recs = []
+    num_recs_per_genre = 10 // len(highest_rated_apps)
+    remaining_recs = 10 % len(highest_rated_apps)
+    for genre in highest_rated_apps:
+        if highest_rated_apps[genre]['appid'] is not None:
+            recommendations = get_recommendations(encoder.transform(
+                [highest_rated_apps[genre]['appid']])[0], num_recs_per_genre)
+            recs.extend(recommendations)
+
+    for genre, app_info in highest_rated_apps.items():
+        if remaining_recs == 0:
+            break
+        if app_info['appid'] is not None:
+            recommendations = get_recommendations(
+                encoder.transform([app_info['appid']])[0], 1)
+            recs.extend(recommendations)
+            remaining_recs -= 1
+
+    recs = recs[:10]
     rec = [{'name': get_name_from_appid(
-        id), 'header_image': get_header_image(id)} for id in recommendations]
+        id), 'header_image': get_header_image(id)} for id in recs]
     return {'data': rec}
 
 
@@ -181,6 +214,24 @@ def get_header_image(appid):
     results = cursor.fetchall()
     header_image = results[0].header_image
     return header_image
+
+
+def get_genre(appid):
+    sql_query = text(
+        'SELECT genres FROM games where appid = :appid')
+    cursor = db.session.execute(sql_query, {'appid': appid})
+    results = cursor.fetchall()
+    genre = results[0].genres
+    return genre
+
+
+def get_rating(appid):
+    sql_query = text(
+        'SELECT positive_ratings FROM games where appid = :appid')
+    cursor = db.session.execute(sql_query, {'appid': appid})
+    results = cursor.fetchall()
+    positive_ratings = results[0].positive_ratings
+    return positive_ratings
 
 
 if __name__ == '__main__':
