@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "8080:8080"
+  backend:
+    build: ./backend
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    volumes:
+      - ./backend/db:/docker-entrypoint-initdb.d/:ro
+      - ./backend/csv_data:/csv_data
