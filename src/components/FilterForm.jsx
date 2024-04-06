@@ -4,14 +4,17 @@ import './styles/filterform.css';
 import { useNavigate } from 'react-router-dom';
 
 const FilterForm = () => {
+  // Defines state for filter options
   const [genre, setGenre] = useState('');
   const [category, setCategory] = useState('');
   const [platform, setPlatform] = useState('');
   const navigateTo = useNavigate();
 
+  // Defines state for available platforms and genres
   const [platforms, setPlatforms] = useState([]);
   const [genres, setGenres] = useState([]);
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,6 +30,7 @@ const FilterForm = () => {
     }
   };
 
+  // Fetches available platforms and genres on component mount
   useEffect(() => {
     const fetchData = async () => {
       try {

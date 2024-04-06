@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
+# Runs the entire pipeline for building the recommendation system
 def run_pipeline():
     print("started pipeline")
     df = pd.read_csv('resources/steam.csv')
@@ -20,12 +21,14 @@ def run_pipeline():
     return encoder, combined_sim_matrix
 
 
+# Filters the input dataframe to remove games with less than 100 positive ratings
 def filter_df(df):
     below_100_positive_ratings = df[df['positive_ratings'] < 100]
     df_filtered = df.drop(below_100_positive_ratings.index)
     return df_filtered
 
 
+# Preprocesses the input dataframe
 def preprocess(df):
     df['genres'] = df['genres'].str.lower().str.replace(' ', '')
     df['developer'] = df['developer'].str.lower().str.replace(' ', '')
@@ -42,6 +45,7 @@ def preprocess(df):
     return feature_matrix, df
 
 
+# Creates a similarity matrix for the games based on their features
 def make_similarity_matrix(feature_matrix, df):
     feature_sim_matrix = cosine_similarity(feature_matrix)
 

@@ -3,8 +3,10 @@ import './styles/result.css';
 import axios from 'axios';
 
 const Result = ({ game }) => {
+  // Defines state for whether the game is added to the library
   const [isAdded, setIsAdded] = useState(false);
 
+  // Fetches the library status of the game on component mount
   useEffect(() => {
     axios.get(`http://localhost:5000/is_in_library/${game.name}`)
       .then(response => {
@@ -15,7 +17,7 @@ const Result = ({ game }) => {
       });
   }, []);
 
-
+  // Function to add or remove the game from the library
   const handleClickAddToLibrary = async () => {
     setIsAdded(!isAdded);
     if (!isAdded) {

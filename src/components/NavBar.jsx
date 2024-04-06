@@ -5,14 +5,17 @@ import FilterForm from './FilterForm';
 import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
+  // Defines state for filter visibility and search query
   const [isFilter, setIsFilter] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigateTo = useNavigate();
 
+  // Function to handle search input change
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
+  // Function to toggle the filter visibility
   const handleFilterClick = () => {
     setIsFilter(prevIsFilter => {
       console.log(!prevIsFilter)
@@ -20,6 +23,7 @@ function NavBar() {
     });
   };
 
+  // Function to handle search on Enter key press
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -27,6 +31,7 @@ function NavBar() {
     }
   };
 
+  // Function to handle search click
   const handleSearchClick = async () => {
     try {
       const response = await axios.post('http://localhost:5000/get_search_results', {

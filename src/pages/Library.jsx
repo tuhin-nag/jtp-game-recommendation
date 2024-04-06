@@ -6,6 +6,7 @@ import LibraryCard from '../components/LibraryCard'
 
 function Library() {
   const [games, setGames] = useState([])
+  // Function to fetch the user's library
   useEffect(() => {
     axios.get('http://localhost:5000/get_library')
       .then(response => {
@@ -16,6 +17,7 @@ function Library() {
       })
   }, [])
 
+  // Function to fetch the user's library again
   const fetchDataAgain = () => {
     axios.get('http://localhost:5000/get_library')
       .then(response => {

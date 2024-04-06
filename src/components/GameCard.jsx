@@ -3,11 +3,15 @@ import axios from 'axios';
 import './styles/gamecard.css';
 
 const GameCard = ({ game }) => {
+  // Destructures the header_image and name properties from the game object
   const { header_image, name } = game
+
+  // Defines state for whether the game is added to the library
   const [isAdded, setIsAdded] = useState(false);
 
+  // Fetches the library status of the game on component mount
   useEffect(() => {
-    axios.get(`http://localhost:5000/is_in_library/${game.name}`)
+    axios.get(`http://localhost:5000/is_in_library/${name}`)
       .then(response => {
         setIsAdded(response.data.data);
       })
@@ -17,11 +21,12 @@ const GameCard = ({ game }) => {
   }, []);
 
 
+  // Function to add or remove the game from the library
   const handleClickAddToLibrary = async () => {
     setIsAdded(!isAdded);
     if (!isAdded) {
       try {
-        const response = await axios.get(`http://localhost:5000/add_to_library/${game.name}`);
+        const response = await axios.get(`http://localhost:5000/add_to_library/${name}`);
         if (response.data.data) {
           console.log('Game added to library:', response.data);
         } else {
@@ -32,7 +37,7 @@ const GameCard = ({ game }) => {
       }
     } else {
       try {
-        const response = await axios.get(`http://localhost:5000/remove_from_library/${game.name}`);
+        const response = await axios.get(`http://localhost:5000/remove_from_library/${name}`);
         if (response.data.data) {
           console.log('Game removed from library:', response.data);
         } else {
@@ -61,7 +66,7 @@ const GameCard = ({ game }) => {
           marginTop: '1rem',
         }}></div>
       <div className="game-title">
-        <span>{game.name}</span>
+        <span>{name}</span>
         {!isAdded ? (
           <svg xmlns="http://www.w3.org/2000/svg"
             className="save-game"

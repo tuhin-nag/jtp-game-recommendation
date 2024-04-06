@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 import './styles/home.css';
 
 const Home = () => {
+  // Defines state variables
   const [recommendedGames, setRecommendedGames] = useState([]);
   const [topGames, setTopGames] = useState([]);
   const [actionGames, setActionGames] = useState([]);
@@ -13,6 +14,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [renderContent, setRenderContent] = useState(false);
 
+  // Fetches data from the backend 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +39,7 @@ const Home = () => {
     fetchData();
   }, []);
 
+  // Renders loading indicator if data is being fetched, otherwise renders the content
   return isLoading ? (
     <div>Loading...</div>
   ) : renderContent ? (

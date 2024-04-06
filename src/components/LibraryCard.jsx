@@ -3,6 +3,7 @@ import axios from 'axios'
 import './styles/librarycard.css'
 
 const LibraryCard = ({ game, fetchDataAgain }) => {
+  // Function to remove the game from the library
   const handleRemoveFromLibrary = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/remove_from_library/${game.name}`)

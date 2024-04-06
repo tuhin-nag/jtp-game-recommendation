@@ -3,18 +3,21 @@ import axios from 'axios';
 import './styles/carousel.css';
 
 const Carousel = ({ games }) => {
+  // Defines state for current index and whether games are added to the library
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAdded, setIsAdded] = useState(Array(games.length).fill(false));
-  console.log(isAdded)
 
+  // Function to go to the previous game in the carousel
   const handlePrev = () => {
     setCurrentIndex((currentIndex - 1 + games.length) % games.length);
   };
 
+  // Function to go to the next game in the carousel
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % games.length);
   };
 
+  // Fetches the library status of the current game when the current index changes
   useEffect(() => {
     axios.get(`http://localhost:5000/is_in_library/${games[currentIndex].name}`)
       .then(response => {
@@ -27,6 +30,7 @@ const Carousel = ({ games }) => {
       });
   }, [currentIndex]);
 
+  // Function to add or remove the current game from the library
   const handleClickAddToLibrary = async () => {
     const updatedIsAdded = [...isAdded];
     updatedIsAdded[currentIndex] = !updatedIsAdded[currentIndex];

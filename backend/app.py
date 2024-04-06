@@ -25,6 +25,7 @@ def hello_world():
     return 'Hello, World!'
 
 
+# Route to get top games in a specific genre
 @app.route('/top_in_genre/<genre>')
 def top_in_genre(genre):
     sql_query = text(
@@ -37,6 +38,7 @@ def top_in_genre(genre):
     return {'data': data}
 
 
+# Route to get top 10 games overall
 @app.route('/top_10')
 def top_ten():
     sql_query = text(
@@ -49,25 +51,14 @@ def top_ten():
     return {'data': data}
 
 
-@app.route('/header_image/<name>')
-def header_image(name):
-    appid = get_appid_from_name(name)
-    sql_query = text(
-        'SELECT header_image FROM media where appid = :appid')
-    cursor = db.session.execute(sql_query, {'appid': appid})
-    results = cursor.fetchall()
-    data = {'header_image': results[0].header_image,
-            'name': name}
-    cursor.close()
-    return {'data': data}
-
-
+# Route to add a game to the user's library
 @app.route('/add_to_library/<name>')
 def add_to_library(name):
     library.append(get_appid_from_name(name))
     return {'data': library}
 
 
+# Route to get the user's library
 @app.route('/get_library')
 def get_library():
     data = [{'name': get_name_from_appid(id),
@@ -76,12 +67,14 @@ def get_library():
     return {'data': data}
 
 
+# Route to check if a game is in the user's library
 @app.route('/is_in_library/<name>')
 def is_in_library(name):
     appid = get_appid_from_name(name)
     return {'data': appid in library}
 
 
+# Route to remove a game from the user's library
 @app.route('/remove_from_library/<name>')
 def remove_from_library(name):
     appid = get_appid_from_name(name)
@@ -90,6 +83,7 @@ def remove_from_library(name):
         return {'data': library}
 
 
+# Route to get a list of genres
 @app.route('/get_genres')
 def get_genres():
     sql_query = text(
@@ -101,6 +95,7 @@ def get_genres():
     return {'data': genres}
 
 
+# Route to get a list of platforms
 @app.route('/get_platforms')
 def get_platforms():
     sql_query = text(
@@ -112,10 +107,10 @@ def get_platforms():
     return {'data': platforms}
 
 
+# Route to get filtered game results based on genre, category, and platform
 @app.route('/get_filter_results', methods=['POST'])
 def get_filter_results():
     data = request.json
-
     genre = data.get('genre')
     category = data.get('category')
     platform = data.get('platform')
@@ -130,6 +125,7 @@ def get_filter_results():
     return {'data': data}
 
 
+# Route to get search results based on a search query
 @app.route('/get_search_results', methods=['POST'])
 def get_search_results():
     data = request.json
@@ -145,6 +141,7 @@ def get_search_results():
     return {'data': data}
 
 
+# Route to get game recommendations based on the user's library
 @app.route('/recommend')
 def recommend():
     if len(library) == 0:
@@ -177,6 +174,7 @@ def recommend():
     return {'data': rec}
 
 
+# Helper function to get recommendations based on item ID and number of recommendations
 def get_recommendations(item_id, top_n=5):
     sim_scores = model[item_id]
     top_similar_items = sim_scores.argsort()[::-1][1:top_n+1]
@@ -185,6 +183,7 @@ def get_recommendations(item_id, top_n=5):
     return top_similar_items
 
 
+# Helper function to get appid from game name
 def get_appid_from_name(name):
     sql_query = text(
         'SELECT appid FROM games where name = :name')
@@ -194,6 +193,7 @@ def get_appid_from_name(name):
     return appid
 
 
+# Helper function to get game name from appid
 def get_name_from_appid(appid):
     sql_query = text(
         'SELECT name FROM games where appid = :appid')
@@ -203,6 +203,7 @@ def get_name_from_appid(appid):
     return name
 
 
+# Helper function to get header image URL from appid
 def get_header_image(appid):
     sql_query = text(
         'SELECT header_image FROM media where appid = :appid')
@@ -212,6 +213,7 @@ def get_header_image(appid):
     return header_image
 
 
+# Helper function to get genre from appid
 def get_genre(appid):
     sql_query = text(
         'SELECT genres FROM games where appid = :appid')
@@ -221,6 +223,7 @@ def get_genre(appid):
     return genre
 
 
+# Helper function to get rating from appid
 def get_rating(appid):
     sql_query = text(
         'SELECT positive_ratings FROM games where appid = :appid')
@@ -230,5 +233,6 @@ def get_rating(appid):
     return positive_ratings
 
 
+# Entry point for the Flask application
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
