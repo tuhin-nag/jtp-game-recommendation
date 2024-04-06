@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import './librarycard.css'
+import './styles/librarycard.css'
 
 const LibraryCard = ({ game, fetchDataAgain }) => {
   const handleRemoveFromLibrary = async () => {

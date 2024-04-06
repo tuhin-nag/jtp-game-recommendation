@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './gamecard.css';
+import './styles/gamecard.css';
 
 const GameCard = ({ game }) => {
   const { header_image, name } = game

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import axios from 'axios'
-import './library.css'
+import './styles/library.css'
 import LibraryCard from '../components/LibraryCard'
 
 function Library() {

@@ -5,23 +5,18 @@
   padding: 20px;
 }
 
-.card-footer {
+.library-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.title {
-  font-size: 1rem;
-  margin: 0;
-}
-
-.remove {
-  font-size: 1rem;
-  text-transform: capitalize;
-  font-weight: 200;
-  color: var(--text);
-  opacity: 0.8;
+.library-game-title
+{
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: var(--text);
+    opacity: 0.8;
+    margin-top: 0.7rem; 
 }
 
 .library-button {
@@ -40,24 +35,14 @@
   background-color: black;
 }
 
+
 .library-button-text {
   font-size: rem;
   margin: 0;
 }
 
-.library-card-footer {
-  display: flex;
-  justify-content: space-between;
-}
 
-.library-game-title
-{
-    font-size: 1rem;
-    text-transform: capitalize;
-    color: var(--text);
-    opacity: 0.8;
-    margin-top: 0.7rem;
 
-    
-}
+
+
 

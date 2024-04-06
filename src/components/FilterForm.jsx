@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './filterform.css';
+import './styles/filterform.css';
 import { useNavigate } from 'react-router-dom';
 
 const FilterForm = () => {

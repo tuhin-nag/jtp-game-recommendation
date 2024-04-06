@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import './searchresults.css';
+import './styles/searchresults.css';
 import NavBar from '../components/NavBar';
 import Result from '../components/Result';
 

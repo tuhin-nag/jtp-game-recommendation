@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './carousel.css';
+import './styles/carousel.css';
 
 const Carousel = ({ games }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,10 +98,10 @@ const Carousel = ({ games }) => {
       </div>
       <div className='footer'>
         <div className='navigation-container' onClick={handlePrev}>
-          <svg className='left-arrow' xmlns="http://www.w3.org/2000/svg" height='20px' width='20px' viewBox="0 0 320 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height='20px' width='20px' viewBox="0 0 320 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
           <span className="navigation-text">Previous</span>
         </div>
-        <div className="caoursel-total-display hero-options">
+        <div className="carousel-total-display">
           {games.map((game, index) => (
             <div
               key={index}

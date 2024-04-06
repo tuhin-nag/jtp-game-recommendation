@@ -10,12 +10,20 @@
     z-index: 100;
 }
 
+.logo-container
+{
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
 .site-control-options
 {
     display: flex;
     align-items: center;
     gap: 2.441rem;
 }
+
 .site-control-options > * 
 {
     text-decoration: none;
@@ -24,13 +32,7 @@
     text-transform: uppercase;
     font-weight: 600;
 }
-.logo-container
-{
-    text-transform: uppercase;
-    font-size: 1.25rem;
-    /* font-weight: bold; */
-    color: var(--text-color);
-}
+
 .search-box {
     display:flex;
     padding: 0.32rem 0.64rem;
@@ -39,6 +41,7 @@
     padding: 10px 20px;
     border-radius: 50px;
 }
+
 .search-box > input
 {
     padding: 6px;
@@ -47,6 +50,7 @@
     outline: 0;
     color: white;
 }
+
 .filter-button
 {
     gap: 0.3813rem;

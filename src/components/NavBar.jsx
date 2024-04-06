@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './navbar.css';
+import React, { useState } from 'react';
+import './styles/navbar.css';
 import axios from 'axios';
 import FilterForm from './FilterForm';
 import { useNavigate } from 'react-router-dom';

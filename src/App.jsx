@@ -6,6 +6,7 @@ import {
 import Home from './pages/Home';
 import SearchResults from "./pages/SearchResults";
 import Library from "./pages/Library";
+import './App.css';
 
 function App() {
   return (

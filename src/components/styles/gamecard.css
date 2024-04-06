@@ -9,17 +9,7 @@
     padding: 0.32rem;
  
 }
-.game-card
-{
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 0.32rem;
-    background-image: url(${header_image});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
+
 .game-title
 {
     width: 90%;
@@ -33,17 +23,7 @@
     justify-content: space-between;
     
 }
-.save-game
-{
-    /* background-image: url('../assets/bookmark-solid.svg'); */
-    wdith: 50px;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    visibility: hidden;
-    
-}
+
 .game-card-container:hover .save-game 
 {
     visibility: visible;
@@ -51,4 +31,15 @@
 .game-card:hover
 {
     opacity: 0.8;
+}
+
+.save-game
+{
+    wdith: 50px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    
 }

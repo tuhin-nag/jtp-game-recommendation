@@ -13,6 +13,11 @@
   min-height: 100vh;
 }
 
+.column-game-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
 .grid-container {
   border-radius: 10px;
   background-color: var(--secondary-color); 
@@ -23,9 +28,5 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.column-game-title {
-  font-size: 1rem;
-  margin: 0;
-}
 
 

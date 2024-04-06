@@ -3,7 +3,7 @@ import axios from 'axios';
 import Carousel from '../components/Carousel';
 import GameCard from '../components/GameCard';
 import NavBar from '../components/NavBar';
-import './home.css';
+import './styles/home.css';
 
 const Home = () => {
   const [recommendedGames, setRecommendedGames] = useState([]);
@@ -24,7 +24,6 @@ const Home = () => {
         ]);
 
         setRecommendedGames(recommendedResponse.data.data);
-        // console.log(recommendedResponse.data.data)
         setTopGames(topResponse.data.data);
         setActionGames(actionResponse.data.data);
         setRpgGames(rpgResponse.data.data)
