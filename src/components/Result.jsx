@@ -49,7 +49,7 @@ const Result = ({ game }) => {
         <p className="text">{game.name}</p>
         {!isAdded ? (
           <div className="add-to-library-container">
-            <div className="button-content" onClick={handleClickAddToLibrary}>
+            <div className="save-button-content" onClick={handleClickAddToLibrary}>
               <span className="button-text">Add To Library</span>
               <svg xmlns="http://www.w3.org/2000/svg"
                 className="save-game"
@@ -62,7 +62,7 @@ const Result = ({ game }) => {
           </div>
         ) : (
           <div className="add-to-library-container">
-            <div className="button-content" onClick={handleClickAddToLibrary}>
+            <div className="save-button-content" onClick={handleClickAddToLibrary}>
               <span className="button-text">Remove From Library</span>
               <svg
                 className="save-game"

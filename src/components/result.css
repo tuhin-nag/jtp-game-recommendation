@@ -45,7 +45,7 @@
   border-radius: 10px;
 }
 
-.button-content {
+.save-button-content {
   display: flex;
   align-items: center;
   cursor: pointer;

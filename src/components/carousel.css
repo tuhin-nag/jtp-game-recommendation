@@ -124,6 +124,10 @@ body
   margin-top: 6rem;
 }
 
+.add-library-container:hover, .button-content:hover {
+  background-color: #252525;
+}
+
 .button-content {
   display: flex;
   align-items: center;
