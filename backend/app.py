@@ -9,10 +9,10 @@ app = Flask(__name__)
 CORS(app)
 
 # Uncomment for containerized version
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@db:3306/games'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@db:3306/games'
 
-# Uncomment for local version 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
+# Uncomment for local version
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -20,10 +20,10 @@ encoder, model = model_loader.run_pipeline()
 library = []
 
 
-
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
 
 @app.route('/top_in_genre/<genre>')
 def top_in_genre(genre):
@@ -144,6 +144,7 @@ def get_search_results():
     cursor.close()
     return {'data': data}
 
+
 @app.route('/recommend')
 def recommend():
     if len(library) == 0:
@@ -231,4 +232,3 @@ def get_rating(appid):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
-

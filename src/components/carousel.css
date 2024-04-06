@@ -94,10 +94,10 @@ body
 }
 .main-content-carousel
 {
-    width: 50vw;
     aspect-ratio: 16/10;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 .main-content-carousel::after
 {
@@ -111,23 +111,17 @@ body
 .recommended-text {
     font-size: 1.5rem;
     color: white;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     justify-content: center;
+
 }
 
-.carousel-container:hover .add-library-container {
-  visibility: visible;
-}
-
-.carousel-container:hover .bookmark {
-  visibility: visible;
-}
 .add-library-container {
   display: inline-block;
   padding: 5px;
-  visibility: hidden; 
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
   border-radius: 10px;
+  margin-top: 6rem;
 }
 
 .button-content {
@@ -135,6 +129,8 @@ body
   align-items: center;
   cursor: pointer;
   padding: 5px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
 }
 
 .button-text {
@@ -148,11 +144,40 @@ body
     background-color: transparent;
     border: none;
     cursor: pointer;
-    visibility: hidden;
 }
 
 .footer {
     display: flex;
     justify-content: space-between;
+}
+
+.main-carousel-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.carousel-title {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navigation-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.navigation-text {
+    color: white;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
+
+.left-arrow {
 
 }
