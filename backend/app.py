@@ -83,6 +83,13 @@ def remove_from_library(name):
         return {'data': library}
 
 
+# Route to clear the user's library
+@app.route('/clear_library')
+def clear_library():
+    library.clear()
+    return {'data': library}
+
+
 # Route to get a list of genres
 @app.route('/get_genres')
 def get_genres():

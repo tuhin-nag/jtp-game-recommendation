@@ -13,6 +13,23 @@
   min-height: 100vh;
 }
 
+.clear-all {
+  background-color: #909090;
+  width: 100%;
+  color: black;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.clear-all:hover {
+  background-color: white;
+}
+
 .column-game-title {
   font-size: 1rem;
   margin: 0;

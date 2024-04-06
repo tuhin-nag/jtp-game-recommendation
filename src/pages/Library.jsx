@@ -29,13 +29,24 @@ function Library() {
   }
   console.log(games)
 
+  // Function to clear the user's library
+  const clearLibrary = () => {
+    axios.get('http://localhost:5000/clear_library')
+      .then(response => {
+        setGames([])
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error)
+      })
+  }
+
 
   return (
     <div>
       <NavBar />
       <div className='library-container-container'>
         <div className='library-container'>
-
+          <button className='clear-all' onClick={clearLibrary}>Clear Library</button>
           {games.map(game => {
             return (
               <div>
