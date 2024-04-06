@@ -32,6 +32,9 @@ This is a full-stack web application that provides video game recommendations ba
     cd video-game-recommender
     ```
 3. Configure the database connection in the Flask app (backend/app.py).
+
+   ![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/c469fce2-ab83-4648-b00e-4d61d61e0b90)
+
 4. Run docker-compose up:
     ```bash
     docker-compose up --build
@@ -60,6 +63,9 @@ This is a full-stack web application that provides video game recommendations ba
 
 5. Set up the MySQL database and import the provided dataset.
 6. Configure the database connection in the Flask app (backend/app.py).
+
+     ![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/0ebb512b-9c45-4ffa-996e-7c2943b91a55)
+
 7. Start the Flask development server:
     ```bash
     flask run
