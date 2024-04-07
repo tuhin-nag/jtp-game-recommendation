@@ -4,15 +4,17 @@ from sqlalchemy import text
 from flask_cors import CORS
 import model_loader
 from collections import defaultdict
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-# Uncomment for containerized version
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@db:3306/games'
+# Check if app is running locally or in a Docker container
+if os.environ.get('DOCKERISED'):
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@db:3306/games'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
 
-# Uncomment for local version
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/games'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
