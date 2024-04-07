@@ -41,6 +41,7 @@ function SearchResults() {
           </div>
         </div>
         <div className='results-container'>
+          {currentResults.length === 0 && <div className='no-results'>No results found</div>}
           {currentResults.map((game, index) => (
             <Result key={index} game={game} />
           ))}
