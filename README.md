@@ -31,15 +31,11 @@ This is a full-stack web application that provides video game recommendations ba
     ```bash
     cd video-game-recommender
     ```
-3. Configure the database connection in the Flask app (backend/app.py).
-
-   ![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/c469fce2-ab83-4648-b00e-4d61d61e0b90)
-
-4. Run docker-compose up:
+3. Run docker-compose up:
     ```bash
     docker-compose up --build
     ```
-5. Open your web browser and navigate to http://localhost:8080 to access the application.
+4. Open your web browser and navigate to http://localhost:8080 to access the application.
 
 ## Installation (without Docker)
 
@@ -62,19 +58,16 @@ This is a full-stack web application that provides video game recommendations ba
     ```
 
 5. Set up the MySQL database and import the provided dataset.
-6. Configure the database connection in the Flask app (backend/app.py).
-
-     ![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/0ebb512b-9c45-4ffa-996e-7c2943b91a55)
-
-7. Start the Flask development server:
+   
+6. Start the Flask development server:
     ```bash
     flask run
     ```
-8. In a separate terminal, start the React development server:
+7. In a separate terminal, start the React development server:
     ```bash
     npm start
     ```
-9. Open your web browser and navigate to http://localhost:8080 to access the application.
+8. Open your web browser and navigate to http://localhost:8080 to access the application.
 
 ## Usage
 
