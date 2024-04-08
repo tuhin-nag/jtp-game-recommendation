@@ -2,6 +2,17 @@
 
 This is a full-stack web application that provides video game recommendations based on user preferences and their library. The application utilizes Flask for the backend and React for the frontend.
 
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  - [With Docker](#with-docker)
+  - [Without Docker](#without-docker)
+- [Usage](#usage)
+- [Implementation](#implementation)
+
 ## Features
 
 - Search for games by name
@@ -11,17 +22,34 @@ This is a full-stack web application that provides video game recommendations ba
 - Get personalized game recommendations based on your library
 
 ## Technologies Used
-
+- Docker
 ### Backend
-
+- Python
 - Flask
 - MySQL
 
 ### Frontend
 
 - React
+- HTML
+- CSS
 
-## Installation (with Docker)
+## Prerequisites
+
+- Docker 
+
+Install Docker by following the instructions [here](https://docs.docker.com/get-docker/).
+
+- Docker Compose
+
+Install Docker Compose by following the instructions [here](https://docs.docker.com/compose/install/).
+
+- Git
+
+Install Git by following the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+## Installation
+### With Docker
 
 1. Clone the repository:
     ```bash
@@ -37,7 +65,7 @@ This is a full-stack web application that provides video game recommendations ba
     ```
 4. Open your web browser and navigate to http://localhost:8080 to access the application.
 
-## Installation (without Docker)
+### Without Docker
 
 1. Clone the repository:
     ```bash
@@ -76,3 +104,14 @@ This is a full-stack web application that provides video game recommendations ba
 - Click on the filter icon to open the filter form and filter games by genre, category, and platform.
 - Click on the "Add to Library" button to add a game to your personal library.
 - Navigate to the "Library" page to view and manage your library.
+
+## Implementation
+#### Home Page 
+![home-page](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/7a35c931-7fa5-40ec-9639-5862731e421e)
+
+#### Search Results Page
+![search-page](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/94a52869-3931-49a5-9c23-b50dbcbd7939)
+
+#### Library Page
+![library-page](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/cf7733b3-2cef-4a21-b3c4-75d58de3b375)
+
