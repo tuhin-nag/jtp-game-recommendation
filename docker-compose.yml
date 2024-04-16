@@ -14,7 +14,9 @@ services:
     environment:
       - DOCKERISED=true
     depends_on:
-      - db
+      db:
+        condition: service_healthy   
+     
 
   db:
     image: mysql:5.7
@@ -25,3 +27,7 @@ services:
     volumes:
       - ./backend/db:/docker-entrypoint-initdb.d/:ro
       - ./backend/csv_data:/csv_data
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s                  
+      retries: 5  
