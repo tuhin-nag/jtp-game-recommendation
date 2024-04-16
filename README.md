@@ -69,7 +69,9 @@ Install Git by following the instructions [here](https://git-scm.com/book/en/v2/
     ```bash
     docker-compose up --build
     ```
-4. Open your web browser and navigate to http://localhost:8080 to access the application.
+    Note: Do not worry if this takes a long time initially, Docker has to download all the necessary files for the application to run. On your following launches, the process will be much quicker!
+   
+5. Open your web browser and navigate to http://localhost:8080 to access the application.
 
 ### Without Docker
 
@@ -121,7 +123,7 @@ Install Git by following the instructions [here](https://git-scm.com/book/en/v2/
 
 ![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/04bc1a89-a888-427b-bb8b-6b3cbca00253)
 
-- Return to the "home Page" to view your recommendations.
+- Return to the "Home Page" to view your recommendations.
 
 
 ## Implementation
