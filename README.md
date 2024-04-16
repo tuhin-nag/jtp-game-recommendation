@@ -39,7 +39,7 @@ This is a full-stack web application that provides video game recommendations ba
 - HTML
 - CSS
 
-Although I am more familiar with Django, I personally feel like Django has too much boilerplate, so I wanted to try my hand at something new. MySQL is the DBMS that I am most familiar with, and since I wanted to focus on the websote's functionality, I went with it to ensure a smooth development process. I am proficient in React and using components is always great for code modularity, which is why I chose it for the frontend 
+Although I am more familiar with Django, I personally feel like Django has too much boilerplate, so I wanted to try my hand at something new. MySQL is the DBMS that I am most familiar with, and since I wanted to focus on the website's functionality, I went with it to ensure a smooth development process. I am proficient in React and using components is always great for code modularity, which is why I chose it for the frontend.
 
 ## Prerequisites
 
