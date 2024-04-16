@@ -4,6 +4,7 @@ This is a full-stack web application that provides video game recommendations ba
 ## Table of Contents
 
 - [Features](#features)
+- [Recommendation System](#recommendation-system)
 - [Technologies Used](#technologies-used)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -20,7 +21,7 @@ This is a full-stack web application that provides video game recommendations ba
 - Add games to a personal library
 - Get personalized game recommendations based on your library
 
-## Recommendation
+## Recommendation System
 - The games are recommended based on their similarity, scored by a metric called [cosine similarity](https://www.geeksforgeeks.org/cosine-similarity/)
 - When compared to other recommendation methods, such as KMeans or Jaccardian similarity, this gave the best results
 - Similarity is scored on the basis of the games' genre, developer, category and rating
