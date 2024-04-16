@@ -107,9 +107,22 @@ Install Git by following the instructions [here](https://git-scm.com/book/en/v2/
 
 - The homepage displays recommended games, and top games in specific genres.
 - Use the search bar to search for games by name.
+
+![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/ea1bd74c-7ec5-410a-a992-81e72016ab2e)
 - Click on the filter icon to open the filter form and filter games by genre, category, and platform.
+
+![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/8054d968-77e9-4553-b712-7accfe63a288)
+
 - Click on the "Add to Library" button to add a game to your personal library.
+
+![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/e42b2aff-8bf9-4f6d-9502-626c0fc744b2)
+
 - Navigate to the "Library" page to view and manage your library.
+
+![image](https://github.com/tuhin-nag/jtp-game-recommendation/assets/68266325/04bc1a89-a888-427b-bb8b-6b3cbca00253)
+
+- Return to the "home Page" to view your recommendations.
+
 
 ## Implementation
 #### Home Page 
