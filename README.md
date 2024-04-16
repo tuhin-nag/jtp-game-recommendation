@@ -1,7 +1,6 @@
 # Video Game Recommender
 
 This is a full-stack web application that provides video game recommendations based on user preferences and their library. The application utilizes Flask for the backend and React for the frontend.
-
 ## Table of Contents
 
 - [Features](#features)
@@ -21,6 +20,11 @@ This is a full-stack web application that provides video game recommendations ba
 - Add games to a personal library
 - Get personalized game recommendations based on your library
 
+## Recommendation
+- The games are recommended based on their similarity, scored by a metric called [cosine similarity](https://www.geeksforgeeks.org/cosine-similarity/)
+- When compared to other recommendation methods, such as KMeans or Jaccardian similarity, this gave the best results
+- Similarity is scored on the basis of the games' genre, developer, category and rating
+
 ## Technologies Used
 - Docker
 ### Backend
@@ -33,6 +37,8 @@ This is a full-stack web application that provides video game recommendations ba
 - React
 - HTML
 - CSS
+
+Although I am more familiar with Django, I personally feel like Django has too much boilerplate, so I wanted to try my hand at something new. MySQL is the DBMS that I am most familiar with, and since I wanted to focus on the websote's functionality, I went with it to ensure a smooth development process. I am proficient in React and using components is always great for code modularity, which is why I chose it for the frontend 
 
 ## Prerequisites
 
