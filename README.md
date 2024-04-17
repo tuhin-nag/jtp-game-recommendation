@@ -74,7 +74,7 @@ Install Git by following the instructions [here](https://git-scm.com/book/en/v2/
    - Do not worry if this takes a long time initially, Docker has to download all the necessary files for the application to run. On your following launches, the process will be much quicker!
    - Until the backend and database are fully ready and communicating, the page will display "Loading...". While this is on the screen, please wait patiently, the page will load automatically.
    
-5. Open your web browser and navigate to http://localhost:8080 to access the application.
+5. Open your web browser and navigate to http://localhost:5173 to access the application.
 
 ### Without Docker
 
@@ -106,7 +106,7 @@ Install Git by following the instructions [here](https://git-scm.com/book/en/v2/
     ```bash
     npm start
     ```
-8. Open your web browser and navigate to http://localhost:8080 to access the application.
+8. Open your web browser and navigate to http://localhost:5173 to access the application.
 
 ## Usage
 
