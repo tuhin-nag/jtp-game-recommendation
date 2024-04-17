@@ -16,19 +16,38 @@ const Home = () => {
 
   // Fetches data from the backend 
   useEffect(() => {
+
+    const RETRY_LIMIT = 100; // Number of retries
+    const RETRY_DELAY = 5000; // Delay between retries in milliseconds
+
+    const fetchDataWithRetry = async (url) => {
+      let retries = 0;
+      while (retries < RETRY_LIMIT) {
+        try {
+          const response = await axios.get(url);
+          return response.data.data;
+        } catch (error) {
+          console.error('Internal server error. Retrying...');
+          retries++;
+          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+
+        }
+      }
+      throw new Error('Failed to fetch data after maximum retries.');
+    };
     const fetchData = async () => {
       try {
         const [recommendedResponse, topResponse, actionResponse, rpgResponse] = await Promise.all([
-          axios.get('http://localhost:5000/recommend'),
-          axios.get('http://localhost:5000/top_10'),
-          axios.get('http://localhost:5000/top_in_genre/action'),
-          axios.get('http://localhost:5000/top_in_genre/rpg'),
+          fetchDataWithRetry('http://localhost:5000/recommend'),
+          fetchDataWithRetry('http://localhost:5000/top_10'),
+          fetchDataWithRetry('http://localhost:5000/top_in_genre/action'),
+          fetchDataWithRetry('http://localhost:5000/top_in_genre/rpg'),
         ]);
 
-        setRecommendedGames(recommendedResponse.data.data);
-        setTopGames(topResponse.data.data);
-        setActionGames(actionResponse.data.data);
-        setRpgGames(rpgResponse.data.data)
+        setRecommendedGames(recommendedResponse);
+        setTopGames(topResponse);
+        setActionGames(actionResponse);
+        setRpgGames(rpgResponse)
         setIsLoading(false);
         setRenderContent(true);
       } catch (error) {
@@ -41,7 +60,7 @@ const Home = () => {
 
   // Renders loading indicator if data is being fetched, otherwise renders the content
   return isLoading ? (
-    <div>Loading...</div>
+    <div className='loading'>Loading...</div>
   ) : renderContent ? (
     <div className='outer'>
       <NavBar />
